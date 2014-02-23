@@ -1,0 +1,1 @@
+markdown-1.2.2.vba: call delete('/home/romain/.vim/ftdetect/markdown.vim')|call delete('/home/romain/.vim/snippets/markdown.snippets')|call delete('/home/romain/.vim/syntax/markdown.vim')
