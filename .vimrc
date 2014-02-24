@@ -51,6 +51,12 @@ augroup pythongroup
     autocmd!
     autocmd BufNewFile *.py  0r ~/.vim/templates/python/skeleton.py
     autocmd BufNewFile test_*.py %d | 0r ~/.vim/templates/python/test_skeleton.py
+    autocmd FileType python inoremap <buffer> cla<tab> class (object):<cr>
+                \"""Blah blah"""<cr>pass<esc>kkF(i
+    autocmd FileType python inoremap <buffer> me<tab> def (self):<cr>
+                \"""Blah blah"""<cr>pass<esc>kkF(i
+    autocmd FileType python inoremap <buffer> fn<tab> def ():<cr>
+                \"""Blah blah"""<cr>pass<esc>kkF(i
 augroup END
 
 augroup markupgroup
@@ -61,7 +67,25 @@ augroup markupgroup
     autocmd FileType html,xml,ant setlocal softtabstop=2 shiftwidth=2
     "Call Closetag when needed
     autocmd FileType html,xml,ant,mkd,php source ~/.vim/scripts/closetag.vim 
-    autocmd FileType html,mkd iabbrev <buffer> ... &hellip; 
+    " Django templates mapping
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> bl<tab> 
+                \ {% block  %}<cr>{% endblock %}<esc>k$hhi
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> bt<tab> 
+                \ {% blocktrans  %}<cr>{% endblocktrans %}<esc>k$hhi
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> if<tab> 
+                \ {% if  %}<cr>{% endif %}<esc>k$hhi
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> for<tab> 
+                \ {% for %}<cr>{% endfor %}<esc>k$hhi
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> ex<tab> 
+                \ {% extends "" %}<esc>3hi
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> ##<tab> 
+                \ {#  #}<esc>hhi
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> tr<tab> 
+                \ {% trans "" %}<esc>F"i
+    autocmd FileType html,xhtml,htmldjango vnoremap <buffer> tr<tab> 
+                \ xi{% trans "" %}<esc>F"P
+    autocmd FileType html,xhtml,htmldjango inoremap <buffer> var<tab>
+                \ {{  }}<esc>hhi
 augroup END
 
 augroup javascript
