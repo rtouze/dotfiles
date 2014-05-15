@@ -7,14 +7,25 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # PATH le chemin
 export PATH=/usr/local:/usr/local/bin:$PATH
+export EDITOR=vim
+
+# Prompt porn
+export PS1="\n\u@\h:\w\nなに? "
 
 alias ls="ls -Gp"
 alias ll="ls -l"
-alias ebp="vim ~/.bash_profile"
 alias lilibox="ssh romain@192.168.0.37"
 alias firefox="open /Applications/Firefox.app"
+alias vlc="open /Applications/Vlc.app"
+alias mutt="cd ~/Desktop && mutt; cd - > /dev/null"
+alias ebp="vim ~/.bash_profile"
+alias PAD="vim ~/scratchpad.rst"
 
 # Git aliases
 alias ga="git add"
 alias gs="git status"
 alias gl="git log"
+alias gi="git init"
+alias gc="git commit"
+alias gco="git checkout"
+
