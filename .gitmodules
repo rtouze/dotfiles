@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/bundle/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule ".vim/bundle/vim-teamforge"]
+	path = .vim/bundle/vim-teamforge
+	url = https://github.com/rtouze/vim-teamforge.git
