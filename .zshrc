@@ -50,5 +50,7 @@ alias gco="git checkout"
 
 alias RUN='python manage.py runserver'
 
+alias cd.="cd .."
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
