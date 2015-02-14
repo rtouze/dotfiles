@@ -2,19 +2,24 @@
 HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
+
+# zsh options
 setopt notify
+setopt autocd
 unsetopt beep
+
+# key bindings
 bindkey -v
+bindkey '^r' history-incremental-search-backward
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
 zstyle :compinstall filename '/Users/romain/.zshrc'
 
-autoload -Uz compinit
-compinit
-# End of lines added by compinstall
-# Config de Romain ^_^
-# Vi mode
-set -o vi
+# auto load
+autoload -Uz compinit && compinit
+autoload -Uz colors && colors
+
+export KEYTIMEOUT=1
 
 # Un peu de couleur
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
@@ -24,10 +29,10 @@ export PATH=/usr/local:/usr/local/bin:$PATH
 export EDITOR=vim
 
 # Prompt porn
-export PROMPT="%n@%m:%~ » "
+export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} %{$fg_bold[white]%}なに?%{$reset_color%} "
 
 alias ls="ls -Gp"
-alias ll="ls -l"
+alias ll="ls -lh"
 alias lilibox="ssh romain@192.168.0.37"
 alias firefox="open /Applications/Firefox.app"
 alias vlc="open /Applications/Vlc.app"
@@ -38,7 +43,7 @@ alias PAD="vim ~/scratchpad.rst"
 # Git aliases
 alias ga="git add"
 alias gs="git status"
-alias gl="git log"
+alias gl="git log --graph"
 alias gi="git init"
 alias gc="git commit"
 alias gco="git checkout"

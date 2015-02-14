@@ -24,7 +24,7 @@ alias PAD="vim ~/scratchpad.rst"
 # Git aliases
 alias ga="git add"
 alias gs="git status"
-alias gl="git log"
+alias gl="git log --graph"
 alias gi="git init"
 alias gc="git commit"
 alias gco="git checkout"
@@ -33,3 +33,6 @@ alias RUN='python manage.py runserver'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+# for a git branch func to put in prompt
+# git branch --no-color | grep \* | cut -d' ' -f2
