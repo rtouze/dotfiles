@@ -63,7 +63,7 @@ augroup markupgroup
     autocmd BufNewFile *.htm,*.html 0r ~/.vim/templates/html/skeleton.htm
     autocmd FileType html,xml,ant setlocal softtabstop=2 shiftwidth=2
     "Call Closetag when needed
-    autocmd FileType html,xml,ant,markdown,php source ~/.vim/scripts/closetag.vim 
+    autocmd FileType html,xml,ant,markdown,php,htmldjango source ~/.vim/scripts/closetag.vim 
     " Django templates mapping
     " TODO - transform using Ultisnipps
     autocmd FileType html,xhtml,htmldjango inoremap <buffer> bl<tab> 
