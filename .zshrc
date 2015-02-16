@@ -30,7 +30,7 @@ export PATH=/usr/local:/usr/local/bin:$PATH
 export EDITOR=vim
 
 # Prompt porn
-export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} %{$fg_bold[white]%}なに?%{$reset_color%} "
+export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} %{$fg[white]%}なに?%{$reset_color%} "
 
 alias ls="ls --color"
 alias ll="ls -lh"
