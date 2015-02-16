@@ -85,16 +85,16 @@ mm() {
 }
 
 # Show git branch if it exists
-git_show_branch() {
-    git symbolic-ref -q HEAD 2> /dev/null | awk 'BEGIN { FS="/" } {  print $3 }' 
-}
+# git_show_branch() {
+#     git symbolic-ref -q HEAD 2> /dev/null | awk 'BEGIN { FS="/" } {  print $3 }' 
+# }
 
 # Build Right prompt using git information
-build_RPS1() {
-    local _color
-    git diff-index --quiet HEAD 2> /dev/null && _color=green || _color=red
-    local git_branch_str=$(git_show_branch)
-    [[ x$git_branch_str == x ]] && echo "" || echo "[%{$fg[$_color]%}$git_branch_str%{$reset_color%}]"
-}
+# build_RPS1() {
+#     local _color
+#     git diff-index --quiet HEAD 2> /dev/null && _color=green || _color=red
+#     local git_branch_str=$(git_show_branch)
+#     [[ x$git_branch_str == x ]] && echo "" || echo "[%{$fg[$_color]%}$git_branch_str%{$reset_color%}]"
+# }
 
-RPS1='$(build_RPS1)'
+#RPS1='$(build_RPS1)'
