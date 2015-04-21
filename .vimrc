@@ -22,6 +22,8 @@ set backspace=2
 "Don't be shy, my term has 256 colors. Even on Windows.
 set t_Co=256
 
+let mapleader=','
+
 filetype indent on
 filetype plugin on
 
@@ -63,7 +65,7 @@ augroup markupgroup
     autocmd BufNewFile *.htm,*.html 0r ~/.vim/templates/html/skeleton.htm
     autocmd FileType html,xml,ant setlocal softtabstop=2 shiftwidth=2
     "Call Closetag when needed
-    autocmd FileType html,xml,ant,markdown,php,htmldjango source ~/.vim/scripts/closetag.vim 
+    autocmd FileType html,xml,ant,markdown,php,htmldjango,smarty source ~/.vim/scripts/closetag.vim
     " Django templates mapping
     " TODO - transform using Ultisnipps
     autocmd FileType html,xhtml,htmldjango inoremap <buffer> bl<tab> 
@@ -117,9 +119,4 @@ inoremap <<TAB> <><ESC>i
 inoremap `<TAB> ``<ESC>i
 inoremap /*<Tab> /**/<Esc>hi
 
-" Bubble single lines
-nnoremap <C-Up> ddkP
-nnoremap <C-Down> ddp
-" Bubble multiple lines
-vnoremap <C-Up> xkP`[V`]
-vnoremap <C-Down> xp`[V`]
+nnoremap <leader>d A - <esc>:r !date<cr><esc>kJ
