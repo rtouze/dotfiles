@@ -86,6 +86,8 @@ augroup markupgroup
                 \ xi{% trans "" %}<esc>F"P
     autocmd FileType html,xhtml,htmldjango inoremap <buffer> var<tab>
                 \ {{  }}<esc>hhi
+    " Correction d'un probleme de keyword sous cygwin
+    autocmd FileType html,xhtml,rst setlocal iskeyword=@,48-57,_,128-167,224-235
 augroup END
 " }}}
 
