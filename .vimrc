@@ -18,11 +18,8 @@ set wildmenu
 set showmatch
 set ruler
 set backspace=2
-
-"Don't be shy, my term has 256 colors. Even on Windows.
-set t_Co=256
-
 let mapleader=','
+
 
 filetype indent on
 filetype plugin on
@@ -30,16 +27,18 @@ filetype plugin on
 " Needs help to indent html the way I want in vim 7.4
 let g:html_indent_inctags = "html,body,head,tbody" 
 
+"Don't be shy, my term has 256 colors. Even on Windows.
+set t_Co=256
 "jellybeans just rocks!
+"
 colorscheme jellybeans
 
 " custom digraph
 digraphs 3. 8230
-" Remark: find unicode value for choar under cursor: ga
+" Remark: find unicode value for char under cursor: ga
 
 autocmd BufEnter * setlocal noignorecase
 autocmd FileType ruby setlocal softtabstop=2 shiftwidth=2
-autocmd BufNewFile,BufRead *.less setlocal filetype=sass
 
 "Sql file autocommands
 augroup sqlgroup
@@ -50,10 +49,8 @@ augroup END
 
 " {{{ Python augroup
 augroup pythongroup
-    " Cause a bug in syntax highlighting :P
     autocmd!
     autocmd BufNewFile *.py  0r ~/.vim/templates/python/skeleton.py
-    autocmd BufNewFile test_*.py %d | 0r ~/.vim/templates/python/test_skeleton.py
 augroup END
 " }}}
 
@@ -68,23 +65,23 @@ augroup markupgroup
     autocmd FileType html,xml,ant,markdown,php,htmldjango,smarty source ~/.vim/scripts/closetag.vim
     " Django templates mapping
     " TODO - transform using Ultisnipps
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> bl<tab> 
+    autocmd FileType htmldjango inoremap <buffer> bl<tab> 
                 \ {% block  %}<cr>{% endblock %}<esc>k$hhi
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> bt<tab> 
+    autocmd FileType htmldjango inoremap <buffer> bt<tab> 
                 \ {% blocktrans  %}<cr>{% endblocktrans %}<esc>k$hhi
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> if<tab> 
+    autocmd FileType htmldjango inoremap <buffer> if<tab> 
                 \ {% if  %}<cr>{% endif %}<esc>k$hhi
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> for<tab> 
+    autocmd FileType htmldjango inoremap <buffer> for<tab> 
                 \ {% for %}<cr>{% endfor %}<esc>k$hhi
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> ex<tab> 
+    autocmd FileType htmldjango inoremap <buffer> ex<tab> 
                 \ {% extends "" %}<esc>3hi
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> ##<tab> 
+    autocmd FileType htmldjango inoremap <buffer> ##<tab> 
                 \ {#  #}<esc>hhi
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> tr<tab> 
+    autocmd FileType htmldjango inoremap <buffer> tr<tab> 
                 \ {% trans "" %}<esc>F"i
-    autocmd FileType html,xhtml,htmldjango vnoremap <buffer> tr<tab> 
+    autocmd FileType htmldjango vnoremap <buffer> tr<tab> 
                 \ xi{% trans "" %}<esc>F"P
-    autocmd FileType html,xhtml,htmldjango inoremap <buffer> var<tab>
+    autocmd FileType htmldjango inoremap <buffer> var<tab>
                 \ {{  }}<esc>hhi
 augroup END
 " }}}
