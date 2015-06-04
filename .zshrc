@@ -98,3 +98,11 @@ mm() {
 # }
 
 #RPS1='$(build_RPS1)'
+#
+#
+
+# Run tmux if not already running
+if [[ x$TERM != xscreen ]]; then
+    rm -rf /tmp/tmux-* > /dev/null 2>&1
+    tmux
+fi
