@@ -40,6 +40,7 @@ alias vlc="open /Applications/Vlc.app"
 alias mutt="cd ~/Desktop && mutt; cd - > /dev/null"
 alias ebp="vim ~/.bash_profile"
 alias PAD="vim ~/scratchpad.rst"
+alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 
 # Git aliases
 alias ga="git add"
@@ -53,8 +54,14 @@ alias RUN='python manage.py runserver'
 
 alias cd.="cd .."
 
+# tmux aliases
+alias tn="tmux new-window"
+alias ta="tmux attach"
+
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+#[[ x$TERM != xscreen-256color ]] && tmux
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff
 mm() {
@@ -75,3 +82,4 @@ build_RPS1() {
 }
 
 RPS1='$(build_RPS1)'
+
