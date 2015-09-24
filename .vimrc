@@ -51,6 +51,9 @@ augroup END
 augroup pythongroup
     autocmd!
     autocmd BufNewFile *.py  0r ~/.vim/templates/python/skeleton.py
+    autocmd FileType python nnoremap <buffer> <leader>t :!py.test<cr>
+    autocmd FileType python setlocal makeprg=pep8\ %
+    autocmd FileType python nnoremap <buffer> <leader>m :make<cr>
 augroup END
 " }}}
 
@@ -60,7 +63,7 @@ augroup markupgroup
     autocmd BufNewFile,BufRead *.md set filetype=markdown
     "Html template
     autocmd BufNewFile *.htm,*.html 0r ~/.vim/templates/html/skeleton.htm
-    autocmd FileType html,xml,ant setlocal softtabstop=2 shiftwidth=2
+    autocmd FileType html,xml,ant,smarty setlocal softtabstop=2 shiftwidth=2
     "Call Closetag when needed
     autocmd FileType html,xml,ant,markdown,php,htmldjango,smarty source ~/.vim/scripts/closetag.vim
     " Django templates mapping
@@ -90,6 +93,7 @@ augroup END
 augroup javascript
     autocmd!
     autocmd FileType javascript vnoremap <buffer> com<tab> xO/*<esc>p']o*/
+    autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
 augroup END
 " }}}
 
@@ -117,3 +121,6 @@ inoremap `<TAB> ``<ESC>i
 inoremap /*<Tab> /**/<Esc>hi
 
 nnoremap <leader>d A - <esc>:r !date<cr><esc>kJ
+nnoremap <space> :
+vnoremap <space> :
+nnoremap <leader>n :NERDTreeToggle<cr>
