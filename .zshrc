@@ -33,7 +33,7 @@ export EDITOR=vim
 export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} %{$fg[white]%}なに?%{$reset_color%} "
 
 alias ls="ls --color"
-alias ll="ls -lh"
+alias ll="ls -lrth"
 alias lilibox="ssh romain@192.168.0.37"
 alias firefox="open /Applications/Firefox.app"
 alias vlc="open /Applications/Vlc.app"
@@ -67,7 +67,8 @@ alias cd.="cd .."
 alias PERSO='cd /cygdrive/d/Users/RTOUZE/Documents/perso'
 alias HERE="explorer `cygpath -w .`"
 alias CODE="cd /cygdrive/d/Workspace/"
-alias GTD='vim /cygdrive/d/Users/RTOUZE/Documents/GTD/GTD.rst'
+alias GTD='cd /cygdrive/d/Users/RTOUZE/Documents/GTD/ && vim GTD.rst'
+alias FLIP='echo "(╯°□°）╯︵ ┻━┻"'
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
@@ -78,6 +79,8 @@ export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/cygdrive/c/Program\ Files/7-Zip
 export PATH=$PATH:/cygdrive/c/Program\ Files\ \(x86\)/Mozilla\ Firefox
 export ITCE=/cygdrive/d/Users/RTOUZE/Documents/Projets/ITCE
+export DOWN=/cygdrive/d/Users/rtouze/Downloads
+export DESK=/cygdrive/d/Users/rtouze/Desktop
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff
 mm() {
@@ -104,5 +107,5 @@ mm() {
 # Run tmux if not already running
 if [[ x$TERM != xscreen ]]; then
     rm -rf /tmp/tmux-* > /dev/null 2>&1
-    tmux
+    tmux new-session -d -s default -n GTD "cd /cygdrive/d/Users/RTOUZE/Documents/GTD/ && vim GTD.rst" \; new-window \; attach
 fi
