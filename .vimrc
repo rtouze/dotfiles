@@ -85,6 +85,7 @@ augroup markupgroup
                 \ {{  }}<esc>hhi
     " Correction d'un probleme de keyword sous cygwin
     autocmd FileType html,xhtml,rst setlocal iskeyword=@,48-57,_,128-167,224-235
+    autocmd FileType html,xhtml nnoremap <buffer> <leader>h O<div lang="en" style="text-align: justify; hyphens: auto; -moz-hyphens: auto; -o-hyphens: auto; -ie-hyphens: auto; -webkit-hyphens: auto"><esc>
 augroup END
 " }}}
 
@@ -99,6 +100,13 @@ augroup END
 augroup vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" {{{ actionscript augroup
+augroup actionscript
+    autocmd!
+    autocmd BufNewFile,BufRead *.as set filetype=actionscript
 augroup END
 " }}}
 
@@ -119,3 +127,9 @@ inoremap `<TAB> ``<ESC>i
 inoremap /*<Tab> /**/<Esc>hi
 
 nnoremap <leader>d A - <esc>:r !date<cr><esc>kJ
+nnoremap <leader>D A <esc>:r !date +\%d/\%m/\%Y<cr><esc>kJ
+nnoremap <space> :
+vnoremap <space> :
+nnoremap <leader>n :NERDTreeToggle<cr>
+
+nnoremap gf :e <cfile><CR>
