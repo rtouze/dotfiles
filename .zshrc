@@ -49,7 +49,6 @@ alias gl="git log --graph"
 alias gi="git init"
 alias gc="git commit"
 alias gco="git checkout"
-alias svn="LANG=fr_FR.ISO-8859-15 svn"
 
 # Aliases svn
 alias ss="svn status"
@@ -79,6 +78,7 @@ export PATH=$PATH:/usr/sbin
 export PATH=$PATH:/cygdrive/c/Program\ Files/7-Zip
 export PATH=$PATH:/cygdrive/c/Program\ Files\ \(x86\)/Mozilla\ Firefox
 export ITCE=/cygdrive/d/Users/RTOUZE/Documents/Projets/ITCE
+export RFF=/cygdrive/d/Users/RTOUZE/Documents/Projets/RFF
 export DOWN=/cygdrive/d/Users/rtouze/Downloads
 export DESK=/cygdrive/d/Users/rtouze/Desktop
 
@@ -109,3 +109,9 @@ if [[ x$TERM != xscreen ]]; then
     rm -rf /tmp/tmux-* > /dev/null 2>&1
     tmux new-session -d -s default -n GTD "cd /cygdrive/d/Users/RTOUZE/Documents/GTD/ && vim GTD.rst" \; new-window \; attach
 fi
+
+PATH="/home/rtouze/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/rtouze/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/rtouze/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/rtouze/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/rtouze/perl5"; export PERL_MM_OPT;

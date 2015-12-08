@@ -133,3 +133,12 @@ vnoremap <space> :
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 nnoremap gf :e <cfile><CR>
+
+" Abrev
+"
+
+iabbrev Cdlt Cordialement
+
+" statusline
+" set laststatus=2
+" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
