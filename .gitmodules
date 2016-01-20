@@ -34,6 +34,6 @@
 [submodule ".vim/bundle/vim-github-colorscheme.git"]
 	path = .vim/bundle/vim-github-colorscheme.git
 	url = https://github.com/endel/vim-github-colorscheme.git
-[submodule "/home/rtouze/.dotfiles/.vim/bundle/typescript-vim"]
-	path = /home/rtouze/.dotfiles/.vim/bundle/typescript-vim
+[submodule ".vim/bundle/typescript-vim"]
+	path = .vim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git

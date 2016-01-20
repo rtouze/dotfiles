@@ -96,6 +96,12 @@ augroup javascript
 augroup END
 " }}}
 
+" {{{ java augroup
+augroup java
+    autocmd!
+    autocmd FileType java setlocal noexpandtab shiftwidth=8
+" }}}
+
 " {{{ vim augroup
 augroup vim
     autocmd!
@@ -133,6 +139,7 @@ vnoremap <space> :
 nnoremap <leader>n :NERDTreeToggle<cr>
 
 nnoremap gf :e <cfile><CR>
+nnoremap Y y$
 
 " Abrev
 "
@@ -140,5 +147,5 @@ nnoremap gf :e <cfile><CR>
 iabbrev Cdlt Cordialement
 
 " statusline
-" set laststatus=2
+set laststatus=2
 " set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
