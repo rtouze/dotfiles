@@ -86,6 +86,9 @@ augroup markupgroup
                 \ xi{% trans "" %}<esc>F"P
     autocmd FileType htmldjango inoremap <buffer> var<tab>
                 \ {{  }}<esc>hhi
+    " Correction d'un probleme de keyword sous cygwin
+    autocmd FileType html,xhtml,rst setlocal iskeyword=@,48-57,_,128-167,224-235
+    autocmd FileType html,xhtml nnoremap <buffer> <leader>h O<div lang="en" style="text-align: justify; hyphens: auto; -moz-hyphens: auto; -o-hyphens: auto; -ie-hyphens: auto; -webkit-hyphens: auto"><esc>
 augroup END
 " }}}
 
@@ -97,10 +100,23 @@ augroup javascript
 augroup END
 " }}}
 
+" {{{ java augroup
+augroup java
+    autocmd!
+    autocmd FileType java setlocal noexpandtab shiftwidth=8
+" }}}
+
 " {{{ vim augroup
 augroup vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
+augroup END
+" }}}
+
+" {{{ actionscript augroup
+augroup actionscript
+    autocmd!
+    autocmd BufNewFile,BufRead *.as set filetype=actionscript
 augroup END
 " }}}
 
@@ -124,3 +140,15 @@ nnoremap <leader>d A - <esc>:r !date<cr><esc>kJ
 nnoremap <space> :
 vnoremap <space> :
 nnoremap <leader>n :NERDTreeToggle<cr>
+
+nnoremap gf :e <cfile><CR>
+nnoremap Y y$
+
+" Abrev
+"
+
+iabbrev Cdlt Cordialement
+
+" statusline
+set laststatus=2
+" set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
