@@ -18,7 +18,8 @@ set wildmenu
 set showmatch
 set ruler
 set backspace=2
-let mapleader=','
+let mapleader=' '
+set autowriteall
 
 
 filetype indent on
@@ -143,6 +144,14 @@ nnoremap <leader>n :NERDTreeToggle<cr>
 
 nnoremap gf :e <cfile><CR>
 nnoremap Y y$
+
+nnoremap <up> :bprev<cr>
+nnoremap <down> :bnext<cr>
+
+nnoremap <leader>ok r<C-k>OK
+
+vnoremap <leader>c "+y
+nnoremap <leader>c "+y$
 
 " Abrev
 "
