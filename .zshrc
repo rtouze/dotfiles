@@ -27,6 +27,9 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # PATH le chemin
 export PATH=/usr/local:/usr/local/bin:$PATH
+
+# Haskell
+export PATH=$PATH:/Library/Frameworks/GHC.framework/Versions/Current/usr/bin
 export EDITOR=vim
 
 # Prompt porn
@@ -41,6 +44,7 @@ alias mutt="cd ~/Desktop && mutt; cd - > /dev/null"
 alias ebp="vim ~/.bash_profile"
 alias PAD="vim ~/scratchpad.rst"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
+alias v=vim
 
 # Git aliases
 alias ga="git add"
@@ -61,7 +65,9 @@ alias ta="tmux attach"
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-#[[ x$TERM != xscreen-256color ]] && tmux
+export ON=~/Desktop/ONGOING
+export IN=~/Desktop/INBOX
+export OU=~/Desktop/OUTBOX
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff
 mm() {
