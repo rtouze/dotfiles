@@ -33,18 +33,26 @@ export PATH=$PATH:/Library/Frameworks/GHC.framework/Versions/Current/usr/bin
 export EDITOR=vim
 
 # Prompt porn
-export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} %{$fg_bold[white]%}なに?%{$reset_color%} "
+export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} > "
 
 alias ls="ls -Gp"
 alias ll="ls -lh"
 alias lilibox="ssh romain@192.168.0.37"
 alias firefox="open /Applications/Firefox.app"
 alias vlc="open /Applications/Vlc.app"
-alias mutt="cd ~/Desktop && mutt; cd - > /dev/null"
+alias Orange="mutt -F ~/.orange_mutt"
+alias zalem="mutt -F ~/.muttzalem"
+alias rtodev="mutt -F ~/.muttrtodev"
 alias ebp="vim ~/.bash_profile"
 alias PAD="vim ~/scratchpad.rst"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 alias v=vim
+alias LOCK=lock_fun
+alias GTD="vim ~/GTD/GTD.rst"
+
+lock_fun() {
+    /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
+}
 
 # Git aliases
 alias ga="git add"

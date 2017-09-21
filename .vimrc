@@ -53,8 +53,8 @@ augroup pythongroup
     autocmd!
     autocmd BufNewFile *.py  0r ~/.vim/templates/python/skeleton.py
     autocmd FileType python nnoremap <buffer> <leader>t :!py.test<cr>
-    autocmd FileType python setlocal makeprg=pep8\ %
-    autocmd FileType python nnoremap <buffer> <leader>m :make<cr>
+    autocmd FileType python nnoremap <buffer> <leader>r :!python3 %<cr>
+    autocmd FileType python nnoremap <buffer> <leader>a :!ctags -R --languages=python --python-kinds=-i<cr>
 augroup END
 " }}}
 
@@ -64,7 +64,7 @@ augroup markupgroup
     autocmd BufNewFile,BufRead *.md set filetype=markdown
     "Html template
     autocmd BufNewFile *.htm,*.html 0r ~/.vim/templates/html/skeleton.htm
-    autocmd FileType html,xml,ant,smarty setlocal softtabstop=2 shiftwidth=2
+    autocmd FileType html,xml,ant,smarty,htmldjango setlocal softtabstop=2 shiftwidth=2
     "Call Closetag when needed
     autocmd FileType html,xml,ant,markdown,php,htmldjango,smarty source ~/.vim/scripts/closetag.vim
     " Django templates mapping
@@ -155,3 +155,6 @@ iabbrev Cdlt Cordialement
 " statusline
 set laststatus=2
 " set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+"
+" fzf
+" set rtp+=/usr/local/opt/fzf
