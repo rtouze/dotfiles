@@ -14,7 +14,7 @@ bindkey -v
 bindkey '^r' history-incremental-search-backward
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/romain/.zshrc'
+zstyle :compinstall filename '/home/romain/.zshrc'
 
 # auto load
 autoload -Uz compinit && compinit
@@ -22,37 +22,27 @@ autoload -Uz colors && colors
 
 export KEYTIMEOUT=1
 
-# Un peu de couleur
-export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # PATH le chemin
-export PATH=/usr/local:/usr/local/bin:$PATH
+export PATH=/usr/local/bin:$PATH
 
 # Haskell
-export PATH=$PATH:/Library/Frameworks/GHC.framework/Versions/Current/usr/bin
 export EDITOR=vim
+export TERM=xterm-256color
 
-# Prompt porn
+#Prompt porn
 export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} > "
 
-alias ls="ls -Gp"
+alias ls="ls --color"
 alias ll="ls -lh"
-alias lilibox="ssh romain@192.168.0.37"
-alias firefox="open /Applications/Firefox.app"
-alias vlc="open /Applications/Vlc.app"
 alias Orange="mutt -F ~/.orange_mutt"
 alias zalem="mutt -F ~/.muttzalem"
 alias rtodev="mutt -F ~/.muttrtodev"
-alias ebp="vim ~/.bash_profile"
 alias PAD="vim ~/scratchpad.rst"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 alias v=vim
-alias LOCK=lock_fun
+alias LOCK="xscreensaver-command -lock"
 alias GTD="vim ~/GTD/GTD.rst"
-
-lock_fun() {
-    /System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend
-}
 
 # Git aliases
 alias ga="git add"
@@ -70,12 +60,9 @@ alias cd.="cd .."
 alias tn="tmux new-window"
 alias ta="tmux attach"
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-export ON=~/Desktop/ONGOING
-export IN=~/Desktop/INBOX
-export OU=~/Desktop/OUTBOX
+export ON=~/ONGOING
+export IN=~/INBOX
+export OU=~/OUTBOX
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff
 mm() {
