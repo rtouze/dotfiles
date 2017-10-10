@@ -31,7 +31,7 @@ export EDITOR=vim
 export TERM=xterm-256color
 
 #Prompt porn
-export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} > "
+export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} > "
 
 alias ls="ls --color"
 alias ll="ls -lh"
