@@ -19,6 +19,7 @@ set ruler
 set backspace=2
 let mapleader=' '
 set autowriteall
+set modeline
 
 
 filetype indent on
@@ -26,12 +27,18 @@ filetype plugin on
 
 " Needs help to indent html the way I want in vim 7.4
 let g:html_indent_inctags = "html,body,head,tbody" 
+let g:pymode_python = 'python3'
+let g:pymode_folding = 0
 
 "Don't be shy, my term has 256 colors. Even on Windows.
 set t_Co=256
+
 "jellybeans just rocks!
 "
-colorscheme jellybeans
+"set background = dark
+"colorscheme jellybeans
+"set background = light
+"colorscheme solarized
 
 " custom digraph
 digraphs 3. 8230
@@ -97,6 +104,7 @@ augroup javascript
     autocmd!
     autocmd FileType javascript vnoremap <buffer> com<tab> xO/*<esc>p']o*/
     autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
+    autocmd FileType json setlocal softtabstop=2 shiftwidth=2
 augroup END
 " }}}
 
@@ -120,6 +128,14 @@ augroup actionscript
 augroup END
 " }}}
 
+" {{{ neomutt email
+augroup neomutt
+    autocmd!
+    autocmd BufNewFile,BufRead /tmp/neomutt-* set filetype=mail
+augroup END
+
+" }}}
+
 "Remap jk to get out of insert mode!
 inoremap jk <esc>
 
@@ -135,8 +151,10 @@ inoremap {<TAB> {}<ESC>i
 inoremap <<TAB> <><ESC>i
 inoremap `<TAB> ``<ESC>i
 inoremap /*<Tab> /**/<Esc>hi
+inoremap gui<Tab> «  »<Esc>hi
 
-nnoremap <leader>d A - <esc>:r !date<cr><esc>kJ
+nnoremap <leader>-d A - <esc>:r !date<cr>kJ
+nnoremap <leader>d <esc>:r !date<cr>kJ:t.\|s/./-/g\|noh<cr>
 nnoremap <space> :
 vnoremap <space> :
 
@@ -157,3 +175,4 @@ set laststatus=2
 "
 " fzf
 " set rtp+=/usr/local/opt/fzf
+noh

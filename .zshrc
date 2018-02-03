@@ -24,7 +24,9 @@ export KEYTIMEOUT=1
 
 
 # PATH le chemin
-export PATH=/usr/local/bin:$PATH
+export JAVA_HOME=/home/romain/softs/jdk-9
+export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
+export PATH="$HOME/.yarn/bin:$PATH"
 
 # Haskell
 export EDITOR=vim
@@ -35,14 +37,15 @@ export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} > "
 
 alias ls="ls --color"
 alias ll="ls -lh"
+alias mutt="neomutt"
 alias Orange="mutt -F ~/.orange_mutt"
 alias zalem="mutt -F ~/.muttzalem"
 alias rtodev="mutt -F ~/.muttrtodev"
+alias redsen="mutt -F ~/.mutt/muttrcredsen"
 alias PAD="vim ~/scratchpad.rst"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 alias v=vim
 alias LOCK="xscreensaver-command -lock"
-alias GTD="vim ~/GTD/GTD.rst"
 
 # Git aliases
 alias ga="git add"
@@ -60,9 +63,14 @@ alias cd.="cd .."
 alias tn="tmux new-window"
 alias ta="tmux attach"
 
+alias US="setxkbmap us"
+alias FR="setxkbmap fr"
+
+
 export ON=~/ONGOING
 export IN=~/INBOX
 export OU=~/OUTBOX
+
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff
 mm() {
@@ -84,3 +92,10 @@ build_RPS1() {
 
 RPS1='$(build_RPS1)'
 
+if [ -f ~/.config/pomodoro.sh ]; then
+    source ~/.config/pomodoro.sh
+fi
+
+if [ -f ~/.config/secret.sh ]; then
+    source ~/.config/secret.sh
+fi
