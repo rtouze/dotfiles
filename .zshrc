@@ -24,9 +24,13 @@ export KEYTIMEOUT=1
 
 
 # PATH le chemin
-export JAVA_HOME=/home/romain/softs/jdk-9
+#export JAVA_HOME=/home/romain/softs/jdk-9
+export JAVA_HOME=$HOME/ONGOING/comptoir_des_pharmacies/softs/java/jdk1.8.0_162
 export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
+
+# pip --user needs that
+export PATH=$HOME/.local/bin:$PATH
 
 # Haskell
 export EDITOR=vim
@@ -35,8 +39,14 @@ export TERM=xterm-256color
 #Prompt porn
 export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} > "
 
-alias ls="ls --color"
-alias ll="ls -lh"
+
+if type exa>/dev/null 2>&1; then
+    alias ls="exa"
+    alias ll="exa -l"
+else
+    alias ls="ls --color"
+    alias ll="ls -lh"
+fi
 alias mutt="neomutt"
 alias Orange="mutt -F ~/.orange_mutt"
 alias zalem="mutt -F ~/.muttzalem"

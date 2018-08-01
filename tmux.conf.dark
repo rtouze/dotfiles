@@ -11,6 +11,8 @@ bind-key h select-pane -L
 unbind-key l
 bind-key l select-pane -R
 
+bind -n F11 run-shell 'wmctrl -r :ACTIVE: -b toggle,fullscreen'
+
 # colors
 
 #### COLOUR (Solarized 256)

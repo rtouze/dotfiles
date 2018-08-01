@@ -40,12 +40,12 @@
 [submodule ".vim/bundle/goyo.vim"]
 	path = .vim/pack/myplugs/start/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
-[submodule ".vim/bundle/vim-gitgutter"]
-	path = .vim/pack/myplugs/start/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
 [submodule ".vim/pack/myplugs/start/kotlin-vim"]
 	path = .vim/pack/myplugs/start/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim
-[submodule ".vim/pack/myplugs/start/python-mode"]
-	path = .vim/pack/myplugs/start/python-mode
-	url = https://github.com/python-mode/python-mode.git
+[submodule ".vim/pack/myplugs/start/vim-python-pep8-indent"]
+	path = .vim/pack/myplugs/start/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+[submodule ".vim/pack/myplugs/start/jedi-vim"]
+	path = .vim/pack/myplugs/start/jedi-vim
+	url = https://github.com/davidhalter/jedi-vim.git

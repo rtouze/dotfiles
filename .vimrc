@@ -20,6 +20,7 @@ set backspace=2
 let mapleader=' '
 set autowriteall
 set modeline
+set autoread
 
 
 filetype indent on
@@ -35,9 +36,9 @@ set t_Co=256
 
 "jellybeans just rocks!
 "
-"set background = dark
-"colorscheme jellybeans
-"set background = light
+set background=dark
+colorscheme jellybeans
+"set background=light
 "colorscheme solarized
 
 " custom digraph
@@ -109,9 +110,9 @@ augroup END
 " }}}
 
 " {{{ java augroup
-augroup java
-    autocmd!
-    autocmd FileType java setlocal noexpandtab shiftwidth=8
+" augroup java
+"     autocmd!
+"     autocmd FileType java setlocal noexpandtab shiftwidth=8
 " }}}
 
 " {{{ vim augroup
@@ -133,6 +134,13 @@ augroup neomutt
     autocmd!
     autocmd BufNewFile,BufRead /tmp/neomutt-* set filetype=mail
 augroup END
+" }}}
+
+" {{{ Coffee script 
+augroup coffee
+  autocmd!
+  autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2
+augroup END
 
 " }}}
 
@@ -147,7 +155,11 @@ inoremap "<TAB> ""<ESC>i
 inoremap '<TAB> ''<ESC>i
 inoremap [<TAB> []<ESC>i
 inoremap (<TAB> ()<ESC>i
-inoremap {<TAB> {}<ESC>i
+inoremap {<TAB> {<CR>}<ESC>O
+inoremap 1{<TAB> {}<ESC>i
+inoremap {,<TAB> {<CR>},<ESC>O
+inoremap ${<TAB> ${}<ESC>i
+inoremap {{<TAB> {{}}<ESC>hi
 inoremap <<TAB> <><ESC>i
 inoremap `<TAB> ``<ESC>i
 inoremap /*<Tab> /**/<Esc>hi
@@ -174,5 +186,11 @@ set laststatus=2
 " set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 "
 " fzf
-" set rtp+=/usr/local/opt/fzf
+
+map <C-P> :FZF<cr>
+
+" Layouts...
+noremap <leader>FR :!setxkbmap fr<cr>
+noremap <leader>US :!setxkbmap us<cr>
+
 noh
