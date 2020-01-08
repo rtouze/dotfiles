@@ -34,9 +34,6 @@
 [submodule ".vim/bundle/typescript-vim"]
 	path = .vim/pack/myplugs/start/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/pack/myplugs/start/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
 [submodule ".vim/bundle/goyo.vim"]
 	path = .vim/pack/myplugs/start/goyo.vim
 	url = https://github.com/junegunn/goyo.vim.git
@@ -46,6 +43,12 @@
 [submodule ".vim/pack/myplugs/start/vim-python-pep8-indent"]
 	path = .vim/pack/myplugs/start/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
-[submodule ".vim/pack/myplugs/start/jedi-vim"]
-	path = .vim/pack/myplugs/start/jedi-vim
-	url = https://github.com/davidhalter/jedi-vim.git
+[submodule ".vim/pack/myplugs/start/Vim-Jinja2-Syntax"]
+	path = .vim/pack/myplugs/start/Vim-Jinja2-Syntax
+	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
+[submodule ".vim/pack/myplugs/start/tsuquyomi"]
+	path = .vim/pack/myplugs/start/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git
+[submodule ".vim/pack/myplugs/start/vim-vue"]
+	path = .vim/pack/myplugs/start/vim-vue
+	url = https://github.com/posva/vim-vue.git

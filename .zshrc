@@ -28,6 +28,7 @@ export KEYTIMEOUT=1
 export JAVA_HOME=$HOME/ONGOING/comptoir_des_pharmacies/softs/java/jdk1.8.0_162
 export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # pip --user needs that
 export PATH=$HOME/.local/bin:$PATH
@@ -36,13 +37,17 @@ export PATH=$HOME/.local/bin:$PATH
 export EDITOR=vim
 export TERM=xterm-256color
 
+# FZF tweaking
+export FZF_DEFAULT_COMMAND='rg --files'
+
 #Prompt porn
-export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} > "
+# export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} > "
+export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} ✨ "
 
 
 if type exa>/dev/null 2>&1; then
     alias ls="exa"
-    alias ll="exa -l"
+    alias ll="exa -l -snew"
 else
     alias ls="ls --color"
     alias ll="ls -lh"
@@ -55,6 +60,7 @@ alias redsen="mutt -F ~/.mutt/muttrcredsen"
 alias PAD="vim ~/scratchpad.rst"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 alias v=vim
+alias vf='vim `fzf`'
 alias LOCK="xscreensaver-command -lock"
 
 # Git aliases
@@ -65,7 +71,9 @@ alias gi="git init"
 alias gc="git commit"
 alias gco="git checkout"
 
+# Py stuff
 alias RUN='python manage.py runserver'
+alias python=python3  # Python 3 by default!
 
 alias cd.="cd .."
 
@@ -81,10 +89,16 @@ export ON=~/ONGOING
 export IN=~/INBOX
 export OU=~/OUTBOX
 
+alias TGL="systemctl suspend"
+
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff
 mm() {
     mkdir -p $1 && cd $1
+}
+
+genpass() {
+    gpg --gen-random --armor 1 15
 }
 
 # Show git branch if it exists

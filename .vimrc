@@ -21,6 +21,10 @@ let mapleader=' '
 set autowriteall
 set modeline
 set autoread
+set termguicolors
+
+" Foldtext to see the first line of a fold (following a change in 8.1)
+autocmd BufEnter * setlocal foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
 
 
 filetype indent on
@@ -38,8 +42,8 @@ set t_Co=256
 "
 set background=dark
 colorscheme jellybeans
-"set background=light
-"colorscheme solarized
+" set background=light
+" colorscheme solarized
 
 " custom digraph
 digraphs 3. 8230
@@ -55,13 +59,24 @@ augroup sqlgroup
     autocmd FileType sql inoremap <buffer> DO<Tab> DBMS_OUTPUT.PUT_LINE();<Esc>hi
 augroup END
 
+
 " {{{ Python augroup
+"
+command! PutTestInTmuxBuffer
+            \ execute 'silent !tmux set-buffer "py.test '.expand('%').'::'.expand("<cword>").'"'
+            \ | execute 'redraw!'
+
 augroup pythongroup
     autocmd!
     autocmd BufNewFile *.py  0r ~/.vim/templates/python/skeleton.py
-    autocmd FileType python nnoremap <buffer> <leader>t :!py.test<cr>
+    autocmd FileType python nnoremap <buffer> <leader>t :!py.test %<cr>
     autocmd FileType python nnoremap <buffer> <leader>r :!python3 %<cr>
+    autocmd FileType python nnoremap <buffer> <leader>b :!black %<cr>
     autocmd FileType python nnoremap <buffer> <leader>a :!ctags -R --languages=python --python-kinds=-i<cr>
+    autocmd FileType python nnoremap <buffer> <leader>ct :PutTestInTmuxBuffer<cr>
+    autocmd FileType python setlocal makeprg=flake8
+
+
 augroup END
 " }}}
 
@@ -71,7 +86,7 @@ augroup markupgroup
     autocmd BufNewFile,BufRead *.md set filetype=markdown
     "Html template
     autocmd BufNewFile *.htm,*.html 0r ~/.vim/templates/html/skeleton.htm
-    autocmd FileType html,xml,ant,smarty,htmldjango setlocal softtabstop=2 shiftwidth=2
+    autocmd FileType html,xml,ant,smarty,htmldjango,vue setlocal softtabstop=2 shiftwidth=2
     "Call Closetag when needed
     autocmd FileType html,xml,ant,markdown,php,htmldjango,smarty source ~/.vim/scripts/closetag.vim
     " Django templates mapping
@@ -155,8 +170,8 @@ inoremap "<TAB> ""<ESC>i
 inoremap '<TAB> ''<ESC>i
 inoremap [<TAB> []<ESC>i
 inoremap (<TAB> ()<ESC>i
-inoremap {<TAB> {<CR>}<ESC>O
-inoremap 1{<TAB> {}<ESC>i
+inoremap {<TAB> {}<ESC>i
+"inoremap { <TAB> {<CR>}<ESC>O
 inoremap {,<TAB> {<CR>},<ESC>O
 inoremap ${<TAB> ${}<ESC>i
 inoremap {{<TAB> {{}}<ESC>hi
@@ -189,8 +204,20 @@ set laststatus=2
 
 map <C-P> :FZF<cr>
 
+command! FR execute 'silent !setxkbmap fr' | execute 'redraw!'
+command! US execute 'silent !setxkbmap us' | execute 'redraw!'
+
 " Layouts...
-noremap <leader>FR :!setxkbmap fr<cr>
-noremap <leader>US :!setxkbmap us<cr>
+noremap <leader>FR :FR<cr>
+noremap <silent> <leader>US :US<cr>
+
+"Emoji lol
+" ಠ_ಠ
+"
+inoremap YON<tab> ✪
+inoremap :trophy: 🏆
+inoremap :wink: 😉
+inoremap :sweat: 😅
+inoremap :smile: 🙂
 
 noh
