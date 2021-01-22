@@ -23,6 +23,8 @@
 # ----- User Section Begins ----- #
 #
 text/html; /bin/firefox %s & sleep 2; test=test -n $DISPLAY; description=HTML Text; nametemplate=%s.html
+# text/html; w3m -I %{charset} -T text/html; copiousoutput;
+
 application/pdf; evince %s; test=test -n "$DISPLAY"
 #
 # -----  User Section Ends  ----- #

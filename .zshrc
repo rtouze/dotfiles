@@ -29,6 +29,7 @@ export JAVA_HOME=$HOME/ONGOING/comptoir_des_pharmacies/softs/java/jdk1.8.0_162
 export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/softs/node/current/bin:$PATH"
 
 # pip --user needs that
 export PATH=$HOME/.local/bin:$PATH
@@ -53,6 +54,7 @@ else
     alias ll="ls -lh"
 fi
 alias mutt="neomutt"
+alias gmail="mutt"
 alias Orange="mutt -F ~/.orange_mutt"
 alias zalem="mutt -F ~/.muttzalem"
 alias rtodev="mutt -F ~/.muttrtodev"
@@ -70,6 +72,7 @@ alias gl="git log --graph"
 alias gi="git init"
 alias gc="git commit"
 alias gco="git checkout"
+alias gp="git push"
 
 # Py stuff
 alias RUN='python manage.py runserver'
@@ -90,6 +93,14 @@ export IN=~/INBOX
 export OU=~/OUTBOX
 
 alias TGL="systemctl suspend"
+
+alias -s rst=vim
+alias -s pdf=evince
+
+# Clever cloud
+alias sshcc="ssh -t ssh@sshgateway-clevercloud-customers.services.clever-cloud.com"
+
+alias fx=firefox
 
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff

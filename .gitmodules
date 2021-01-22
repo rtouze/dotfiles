@@ -52,3 +52,9 @@
 [submodule ".vim/pack/myplugs/start/vim-vue"]
 	path = .vim/pack/myplugs/start/vim-vue
 	url = https://github.com/posva/vim-vue.git
+[submodule ".vim/pack/myplugs/start/vim-svelte"]
+	path = .vim/pack/myplugs/start/vim-svelte
+	url = https://github.com/evanleck/vim-svelte.git
+[submodule ".vim/pack/myplugs/start/vim-toml"]
+	path = .vim/pack/myplugs/start/vim-toml
+	url = https://github.com/cespare/vim-toml
