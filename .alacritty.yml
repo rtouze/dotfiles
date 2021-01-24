@@ -1,4 +1,3 @@
-
 # Configuration for Alacritty, the GPU enhanced terminal emulator
 
 
@@ -19,9 +18,9 @@ window:
   # Window dimensions in character columns and lines
   # Falls back to size specified by window manager if set to 0x0.
   # (changes require restart)
-  dimensions:
-    columns: 150
-    lines: 50
+  # dimensions:
+  #   columns: 150
+  #   lines: 50
 
   # Adds this many blank pixels of padding around the window
   # Units are physical pixels; this is not DPI aware.
@@ -32,13 +31,10 @@ window:
 
   # Window decorations
   # Setting this to false will result in window without borders and title bar.
-  decorations: true
-
-# Display tabs using this many cells (changes require restart)
-tabspaces: 8
+  # decorations: true
 
 # When true, bold text is drawn using the bright variant of colors.
-draw_bold_text_with_bright_colors: true
+# draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart)
 #
@@ -82,7 +78,7 @@ font:
       family: Deja Vu Sans Mono
 
   # Point size of the font
-  size: 6.5
+  size: 7
 
   # Offset is the extra space around each character. offset.y can be thought of
   # as modifying the linespacing, and offset.x as modifying the letter spacing.
@@ -103,11 +99,11 @@ font:
   use_thin_strokes: true
 
 # Should display the render timer
-render_timer: false
+# render_timer: false
 
 # Use custom cursor colors. If true, display the cursor in the cursor.foreground
 # and cursor.background colors, otherwise invert the colors of the cursor.
-custom_cursor_colors: false
+#custom_cursor_colors: false
 
 
 # Visual Bell
@@ -132,7 +128,7 @@ custom_cursor_colors: false
 #
 # To completely disable the visual bell, set its duration to 0.
 #
-visual_bell:
+bell:
   animation: EaseOutExpo
   duration: 0
 
@@ -179,7 +175,7 @@ mouse:
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
 
-dynamic_title: true
+ # dynamic_title: true
 
 hide_cursor_when_typing: false
 
@@ -378,30 +374,30 @@ key_bindings:
 #     white:   '0xfdf6e3'
 
 # Colors (Solarized Dark)
-colors:
-  # Default colors
-  primary:
-    background: '0x002b36'
-    foreground: '0x839496'
-
-  # Normal colors
-  normal:
-    black:   '0x073642'
-    red:     '0xdc322f'
-    green:   '0x859900'
-    yellow:  '0xb58900'
-    blue:    '0x268bd2'
-    magenta: '0xd33682'
-    cyan:    '0x2aa198'
-    white:   '0xeee8d5'
-
-  # Bright colors
-  bright:
-    black:   '0x002b36'
-    red:     '0xcb4b16'
-    green:   '0x586e75'
-    yellow:  '0x657b83'
-    blue:    '0x839496'
-    magenta: '0x6c71c4'
-    cyan:    '0x93a1a1'
-    white:   '0xfdf6e3'
+# colors:
+#   # Default colors
+#   primary:
+#     background: '0x002b36'
+#     foreground: '0x839496'
+# 
+#   # Normal colors
+#   normal:
+#     black:   '0x073642'
+#     red:     '0xdc322f'
+#     green:   '0x859900'
+#     yellow:  '0xb58900'
+#     blue:    '0x268bd2'
+#     magenta: '0xd33682'
+#     cyan:    '0x2aa198'
+#     white:   '0xeee8d5'
+# 
+#   # Bright colors
+#   bright:
+#     black:   '0x002b36'
+#     red:     '0xcb4b16'
+#     green:   '0x586e75'
+#     yellow:  '0x657b83'
+#     blue:    '0x839496'
+#     magenta: '0x6c71c4'
+#     cyan:    '0x93a1a1'
+#     white:   '0xfdf6e3'
