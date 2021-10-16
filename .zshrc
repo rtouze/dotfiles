@@ -36,7 +36,7 @@ export PATH=$HOME/.local/bin:$PATH
 
 # Haskell
 export EDITOR=vim
-export TERM=xterm-256color
+export TERM=screen-256color
 
 # FZF tweaking
 export FZF_DEFAULT_COMMAND='rg --files'
@@ -93,6 +93,7 @@ export IN=~/INBOX
 export OU=~/OUTBOX
 
 alias TGL="systemctl suspend"
+alias DIE="sudo shutdown -h now"
 
 alias -s rst=vim
 alias -s pdf=evince
@@ -127,10 +128,8 @@ build_RPS1() {
 
 RPS1='$(build_RPS1)'
 
-if [ -f ~/.config/pomodoro.sh ]; then
-    source ~/.config/pomodoro.sh
-fi
+[ -f ~/.config/pomodoro.sh ] && source ~/.config/pomodoro.sh
 
-if [ -f ~/.config/secret.sh ]; then
-    source ~/.config/secret.sh
-fi
+[ -f ~/.config/secret.sh ] && source ~/.config/secret.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

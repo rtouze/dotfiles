@@ -21,7 +21,12 @@ let mapleader=' '
 set autowriteall
 set modeline
 set autoread
-set termguicolors
+"set termguicolors
+"Needed for italic on debian :meh: ಠ_ಠ
+set t_ZH=[3m
+set t_ZR=[23m
+set number
+
 
 " Foldtext to see the first line of a fold (following a change in 8.1)
 autocmd BufEnter * setlocal foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
@@ -121,6 +126,7 @@ augroup javascript
     autocmd FileType javascript vnoremap <buffer> com<tab> xO/*<esc>p']o*/
     autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
     autocmd FileType json setlocal softtabstop=2 shiftwidth=2
+    autocmd FileType javascript,vue nnoremap <buffer> <leader>p :!npx prettier --write %<cr>
 augroup END
 " }}}
 
@@ -157,6 +163,14 @@ augroup coffee
   autocmd FileType coffee setlocal shiftwidth=2 softtabstop=2
 augroup END
 
+" }}}
+"
+" {{{ php augroup
+augroup php
+    autocmd!
+    autocmd FileType php nnoremap <buffer> <leader>l :!php -l %<cr>
+    autocmd FileType php nnoremap <buffer> <leader>t :!php vendor/bin/phpunit %<cr>
+augroup END
 " }}}
 
 "Remap jk to get out of insert mode!
