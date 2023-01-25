@@ -30,20 +30,26 @@ export PATH=$HOME/bin:/usr/local/bin:$JAVA_HOME/bin:$PATH
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/softs/node/current/bin:$PATH"
+export PATH="$HOME/softs/go/bin:$PATH"
 
 # pip --user needs that
 export PATH=$HOME/.local/bin:$PATH
 
+# ruby
+export PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init - zsh)"
+export PATH=$HOME/softs/ruby/ruby-build/bin:$PATH
+
 # Haskell
 export EDITOR=vim
-export TERM=screen-256color
+# export TERM=screen-256color
 
 # FZF tweaking
-export FZF_DEFAULT_COMMAND='rg --files'
+export FZF_DEFAULT_COMMAND='rg --files --ignore-vcs'
 
 #Prompt porn
-# export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} > "
-export PROMPT="%{$fg[green]%}%n@%m:%~%{$reset_color%} ✨ "
+export PROMPT="%{$fg[green]%}%n:%~%{$reset_color%} $ "
+
 
 
 if type exa>/dev/null 2>&1; then
@@ -58,7 +64,7 @@ alias gmail="mutt"
 alias Orange="mutt -F ~/.orange_mutt"
 alias zalem="mutt -F ~/.muttzalem"
 alias rtodev="mutt -F ~/.muttrtodev"
-alias redsen="mutt -F ~/.mutt/muttrcredsen"
+ 
 alias PAD="vim ~/scratchpad.rst"
 alias fuck='eval $(thefuck $(fc -ln -1 | tail -n 1)); fc -R'
 alias v=vim
@@ -80,6 +86,11 @@ alias python=python3  # Python 3 by default!
 
 alias cd.="cd .."
 
+# xrandr
+
+alias EDPOFF="xrandr --output eDP-1 --off"
+alias EDPON="xrandr --output eDP-1 --auto"
+
 # tmux aliases
 alias tn="tmux new-window"
 alias ta="tmux attach"
@@ -87,13 +98,19 @@ alias ta="tmux attach"
 alias US="setxkbmap us"
 alias FR="setxkbmap fr"
 
+# PHP stuff
+alias serve='php artisan serve'
+alias pam='php artisan migrate'
+alias pamr='php artisan migrate:rollback --step=1'
+alias cf='composer format'
+alias yd='yarn dev'
+
+alias -s rst=vim
+alias -s pdf=evince
 
 export ON=~/ONGOING
 export IN=~/INBOX
 export OU=~/OUTBOX
-
-alias TGL="systemctl suspend"
-alias DIE="sudo shutdown -h now"
 
 alias -s rst=vim
 alias -s pdf=evince
@@ -102,6 +119,16 @@ alias -s pdf=evince
 alias sshcc="ssh -t ssh@sshgateway-clevercloud-customers.services.clever-cloud.com"
 
 alias fx=firefox
+
+alias TGL="systemctl suspend && slock"
+alias DIE="sudo shutdown -h now"
+
+# clever cloud
+alias sshcc="ssh -t ssh@sshgateway-clevercloud-customers.services.clever-cloud.com"
+
+# PHP
+alias phpunit="php vendor/bin/phpunit"
+alias pu="php vendor/bin/phpunit"
 
 
 # mm is for make and move as I'm fed up with typing mkdir stuff && cd stuff
@@ -126,10 +153,25 @@ build_RPS1() {
     [[ x$git_branch_str == x ]] && echo "" || echo "[%{$fg[$_color]%}$git_branch_str%{$reset_color%}]"
 }
 
+FLIP() {
+    echo "(╯°□°）╯ ︵ ┻━┻"
+}
+
+sshot() {
+    sleep 2 && import /tmp/screen.png && xclip -selection clipboard -t image/png < /tmp/screen.png
+}
+
 RPS1='$(build_RPS1)'
 
 [ -f ~/.config/pomodoro.sh ] && source ~/.config/pomodoro.sh
 
-[ -f ~/.config/secret.sh ] && source ~/.config/secret.sh
+if [ -f ~/.config/secret.sh ]; then
+    source ~/.config/secret.sh
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export PATH=~/softs/node/current/bin:$PATH
+
+# no capslock !
+setxkbmap -option caps:escape

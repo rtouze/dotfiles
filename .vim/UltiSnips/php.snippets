@@ -1,0 +1,40 @@
+snippet meth
+${1:public} function $2($3)
+{
+    $0
+}
+endsnippet
+
+snippet test
+/** @test */
+public function $1()
+{
+    $0
+    $this->fail('TODO');
+}
+endsnippet
+
+snippet var
+/** @var $0 */
+endsnippet
+
+snippet testcase
+<?php
+
+namespace $1;
+
+use PHPUnit\Framework\TestCase;
+
+class $2 extends TestCase
+{
+}
+endsnippet
+
+snippet factostate
+public function $1()
+{
+    return $this->state(fn (array $attributes) => [
+        $0
+    ]);
+}
+endsnippet

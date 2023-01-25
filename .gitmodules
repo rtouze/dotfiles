@@ -4,9 +4,6 @@
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/pack/myplugs/start/vim-fugitive
         url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/jshint.vim"]
-	path = .vim/pack/myplugs/start/jshint.vim
-	url = https://github.com/walm/jshint.vim.git
 [submodule ".vim/bundle/ultisnips"]
 	path = .vim/pack/myplugs/start/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
@@ -43,9 +40,6 @@
 [submodule ".vim/pack/myplugs/start/Vim-Jinja2-Syntax"]
 	path = .vim/pack/myplugs/start/Vim-Jinja2-Syntax
 	url = https://github.com/Glench/Vim-Jinja2-Syntax.git
-[submodule ".vim/pack/myplugs/start/tsuquyomi"]
-	path = .vim/pack/myplugs/start/tsuquyomi
-	url = https://github.com/Quramy/tsuquyomi.git
 [submodule ".vim/pack/myplugs/start/vim-vue"]
 	path = .vim/pack/myplugs/start/vim-vue
 	url = https://github.com/posva/vim-vue.git
@@ -55,6 +49,21 @@
 [submodule ".vim/pack/myplugs/start/vim-toml"]
 	path = .vim/pack/myplugs/start/vim-toml
 	url = https://github.com/cespare/vim-toml
+[submodule ".vim/pack/myplugs/start/php.vim"]
+	path = .vim/pack/myplugs/start/php.vim
+	url = https://github.com/StanAngeloff/php.vim.git
 [submodule ".vim/pack/myplugs/start/emmet-vim"]
 	path = .vim/pack/myplugs/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule ".vim/pack/myplugs/start/vim-varnish"]
+	path = .vim/pack/myplugs/start/vim-varnish
+	url = https://github.com/fgsch/vim-varnish.git
+[submodule ".vim/pack/myplugs/start/everforest"]
+	path = .vim/pack/myplugs/start/everforest
+	url = https://github.com/sainnhe/everforest.git
+[submodule ".vim/pack/myplugs/start/vim-mustache-handlebars"]
+	path = .vim/pack/myplugs/start/vim-mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule ".vim/pack/myplugs/vim-blade"]
+	path = .vim/pack/myplugs/start/vim-blade
+	url = https://github.com/jwalton512/vim-blade.git

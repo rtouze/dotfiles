@@ -14,7 +14,7 @@ set showcmd
 set showmode
 set autoindent
 set wildmenu
-set showmatch
+" set showmatch
 set ruler
 set backspace=2
 let mapleader=' '
@@ -27,9 +27,9 @@ set t_ZH=[3m
 set t_ZR=[23m
 set number
 
-
-" Foldtext to see the first line of a fold (following a change in 8.1)
-autocmd BufEnter * setlocal foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\*\\\|\\*/\\\|{{{\\d\\=','','g')
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set termguicolors
 
 
 filetype indent on
@@ -41,7 +41,7 @@ let g:pymode_python = 'python3'
 let g:pymode_folding = 0
 
 "Don't be shy, my term has 256 colors. Even on Windows.
-set t_Co=256
+"set t_Co=256
 
 "jellybeans just rocks!
 "
@@ -91,7 +91,7 @@ augroup markupgroup
     autocmd BufNewFile,BufRead *.md set filetype=markdown
     "Html template
     autocmd BufNewFile *.htm,*.html 0r ~/.vim/templates/html/skeleton.htm
-    autocmd FileType html,xml,ant,smarty,htmldjango,vue setlocal softtabstop=2 shiftwidth=2
+    autocmd FileType html,xml,ant,smarty,htmldjango,vue,html.handlebars,html.mustache,blade setlocal softtabstop=2 shiftwidth=2
     "Call Closetag when needed
     autocmd FileType html,xml,ant,markdown,php,htmldjango,smarty source ~/.vim/scripts/closetag.vim
     " Django templates mapping
@@ -127,6 +127,15 @@ augroup javascript
     autocmd FileType javascript setlocal softtabstop=2 shiftwidth=2
     autocmd FileType json setlocal softtabstop=2 shiftwidth=2
     autocmd FileType javascript,vue nnoremap <buffer> <leader>p :!npx prettier --write %<cr>
+    autocmd FileType vue nnoremap <buffer> <leader>p :!npx prettier --write %<cr>
+augroup END
+" }}}
+"
+" {{{ css augroup
+augroup css
+    autocmd!
+    autocmd FileType css setlocal softtabstop=2 shiftwidth=2
+    autocmd FileType css nnoremap <buffer> <leader>p :!npx prettier --write %<cr>
 augroup END
 " }}}
 
@@ -150,6 +159,20 @@ augroup actionscript
 augroup END
 " }}}
 
+" {{{ php augroup
+augroup php
+    autocmd!
+    autocmd FileType php nnoremap <buffer> <leader>t :!composer test %<cr>
+    " autocmd FileType php setlocal foldmethod=indent
+    autocmd FileType php nnoremap <buffer> <leader>a :!ctags -R --languages=php -a app<cr>
+    autocmd FileType php inoremap <buffer> .<tab> ->
+    autocmd FileType php inoremap <buffer> :<tab> =>
+    autocmd FileType php nnoremap <buffer> <leader>l :!php -l %<cr>
+    autocmd FileType php nnoremap <buffer> <leader>t :!php vendor/bin/phpunit %<cr>
+augroup END
+
+" }}}
+
 " {{{ neomutt email
 augroup neomutt
     autocmd!
@@ -165,11 +188,10 @@ augroup END
 
 " }}}
 "
-" {{{ php augroup
-augroup php
+" {{{ yaml augroup
+augroup yaml
     autocmd!
-    autocmd FileType php nnoremap <buffer> <leader>l :!php -l %<cr>
-    autocmd FileType php nnoremap <buffer> <leader>t :!php vendor/bin/phpunit %<cr>
+    autocmd FileType yaml setlocal softtabstop=2 shiftwidth=2
 augroup END
 " }}}
 
@@ -188,16 +210,18 @@ inoremap {<TAB> {}<ESC>i
 "inoremap { <TAB> {<CR>}<ESC>O
 inoremap {,<TAB> {<CR>},<ESC>O
 inoremap ${<TAB> ${}<ESC>i
-inoremap {{<TAB> {{}}<ESC>hi
+inoremap {{<TAB> {{  }}<esc>hhi
 inoremap <<TAB> <><ESC>i
 inoremap `<TAB> ``<ESC>i
 inoremap /*<Tab> /**/<Esc>hi
 inoremap gui<Tab> «  »<Esc>hi
 
 nnoremap <leader>-d A - <esc>:r !date<cr>kJ
+nnoremap <leader>id i<cr><esc>k:r !date +\%Y-\%m-\%d<cr>kJJ
 nnoremap <leader>d <esc>:r !date<cr>kJ:t.\|s/./-/g\|noh<cr>
 nnoremap <space> :
 vnoremap <space> :
+nnoremap <c-j> o<esc>
 
 nnoremap Y y$
 nnoremap gf :e <cfile><cr>
@@ -228,10 +252,13 @@ noremap <silent> <leader>US :US<cr>
 "Emoji lol
 " ಠ_ಠ
 "
-inoremap YON<tab> ✪
-inoremap :trophy: 🏆
 inoremap :wink: 😉
 inoremap :sweat: 😅
 inoremap :smile: 🙂
+inoremap :clavie: ¯\_(ツ)_/¯
+inoremap :meh: ಠ_ಠ
+
+" fix ubuntu issue
+" nnoremap <buffer> <silent> <nowait> -      <Plug>NetrwBrowseUpDir
 
 noh
